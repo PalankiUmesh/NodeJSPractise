@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 const menuRouter = require('./routers/menuRoute')
 app.use('/menu', menuRouter);
 
-PORT = process.env.PORT || 3000
+PORT = process.env.PORT || 2000
 app.listen(PORT, () => {
-    console.log('App is lisiting at port 3000');
+    console.log('App is lisiting at port ',PORT);
 })
