@@ -14,6 +14,20 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.post('/', async (req, res) => {
+    try {
+        const data = req.body;
+        const dataSave = new menuItem(data);
+        const response = await dataSave.save();
+        console.log('Data saved');
+        res.status(200).json(response)
+    }
+    catch(err) {
+        console.log(err);
+        res.status(500).json({Error: 'Internal server error'})
+    }
+})
+
 router.get('/:taste', async (req, res) => {
     try {
         const tasteType = req.params.taste;
